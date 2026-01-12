@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstantPay - Depósitos Rápidos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Fundo Ambience (CSS Puro) -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
+
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">
+            <div class="icon-box">⚡</div>
+            <span>Instant<span class="text-cyan">Pay</span></span>
+        </div>
+        <a href="#" class="nav-link">Login</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <main>
+        <div class="badge">
+            <span class="dot-container">
+                <span class="dot-ping"></span>
+                <span class="dot-static"></span>
+            </span>
+            SISTEMA PIX ATIVO
+        </div>
+
+        <h1 class="hero-title">
+            PAGAMENTOS<br>
+            <span class="text-gradient">INSTANTÂNEOS</span>
+        </h1>
+
+        <p class="hero-desc">
+            Experimente a velocidade da "SyncPay" integrada diretamente na sua carteira digital. 
+            Sem burocracia, apenas o resultado que você espera.
+        </p>
+
+        <button id="openModalBtn" class="cta-button">
+            Comprar Agora <span>&rarr;</span>
+        </button>
+
+        <div class="features">
+            <div class="feature-item">
+                <div class="icon">🛡️</div>
+                <h4>Segurança Total</h4>
+                <p>Dados criptografados</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">⚡</div>
+                <h4>Ultra Rápido</h4>
+                <p>Processamento em segundos</p>
+            </div>
+            <div class="feature-item">
+                <div class="icon">🌍</div>
+                <h4>Escala Global</h4>
+                <p>Arquitetura robusta</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal (Oculto por padrão) -->
+    <div id="paymentModal" class="modal-overlay hidden">
+        <div class="modal-card">
+            <button id="closeModalBtn" class="close-btn">&times;</button>
+
+            <!-- Passo 1: Email -->
+            <div id="step1" class="step-content">
+                <div class="modal-header">
+                    <h3>Quase lá!</h3>
+                    <p>Digite seu e-mail para processar o depósito.</p>
+                </div>
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="email" id="emailInput" placeholder="seu@melhoremail.com">
+                </div>
+                <div id="errorMsg" class="error-msg hidden"></div>
+                <button id="createPixBtn" class="action-btn">
+                    <span id="btnText1">Continuar &rarr;</span>
+                    <span id="loader1" class="loader hidden"></span>
+                </button>
+            </div>
+
+            <!-- Passo 2: Pagamento -->
+            <div id="step2" class="step-content hidden">
+                <div class="modal-header">
+                    <h3>Pagamento via Pix</h3>
+                    <p>Escaneie o QR Code ou copie o código abaixo</p>
+                </div>
+                
+                <div class="qr-container">
+                    <img id="qrImage" src="" alt="QR Code" class="hidden">
+                    <div id="qrPlaceholder" class="qr-placeholder hidden">
+                        QR Visual Indisponível
+                    </div>
+                </div>
+
+                <div class="actions-stack">
+                    <button id="copyBtn" class="secondary-btn">
+                        <span class="icon">📋</span> Copiar código Pix
+                    </button>
+                    <button id="verifyBtn" class="outline-btn">
+                        <span id="verifyText">JÁ PAGUEI, VERIFICAR</span>
+                        <span id="verifyLoader" class="loader hidden"></span>
+                    </button>
+                    <div id="statusMsg" class="status-msg"></div>
+                </div>
+            </div>
+
+            <!-- Passo 3: Sucesso -->
+            <div id="step3" class="step-content hidden success-view">
+                <div class="success-icon">
+                    ✅
+                </div>
+                <h3>Pagamento Confirmado!</h3>
+                <p>Seu depósito foi processado com sucesso.</p>
+                <button id="finalCloseBtn" class="secondary-btn">Fechar</button>
+            </div>
+
+            <div class="modal-footer">
+                <span class="status-dot"></span> Ambiente Seguro SyncPay
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
